@@ -1,0 +1,26 @@
+@startuml
+class Client
+class FactoryPattern {
+ + PARSER
+ +getParser(ParserType: PARSER)
+}
+interface Parser{
+    +parseData()
+}
+class JsonParser {
+    +parseData()
+}
+class XmlParser{
+    +parseData()
+}
+
+enum PARSER {
+    JSON,
+    XML;
+}
+
+Client --> FactoryPattern
+FactoryPattern --> Parser
+Parser <.. JsonParser
+Parser <.. XmlParser
+@enduml
