@@ -1,0 +1,31 @@
+@startuml
+class Client
+
+interface Component {
+ +operation()
+}
+
+class Decorator{
+   {abstract} +operation()
+}
+
+class Component1 {
+    +operation()
+}
+
+class Decorator1{
+    +operation()
+    +addBehavior()
+}
+
+class Decorator2{
+    +operation()
+    +addBehavior()
+}
+
+Client --> Component
+Decorator --> Component
+Component1 --> Component
+Decorator <-- Decorator2
+Decorator <-- Decorator1
+@enduml
