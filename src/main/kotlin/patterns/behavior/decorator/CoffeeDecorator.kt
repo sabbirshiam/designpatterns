@@ -14,15 +14,16 @@ package patterns.behavior.decorator
  * In kotlin we can use infix or extension to use like decorator pattern.
  * Steps
  * -----
- * 1.
+ * 1. Create interface like Coffee
+ * 2. Create Concrete Component SimpleCoffee implementing Coffee
+ * 3. Create abstract decorator class implementing the Coffee interface.
+ * 4. Create concrete decorator class extending the CoffeeDecorator class.
+ * 5. Decorate SimpleCoffee with other concrete decorator class as much as you want. :)
  */
-fun main(args: Array<String>) {
-    fun printInfo(coffee: Coffee) =
-        println("Order name:  Cost: ${coffee.getCost()}, Ingredients: ${coffee.getIngredients()}")
+abstract class CoffeeDecorator constructor(coffee: Coffee) : Coffee {
+    private var decoratedCoffee: Coffee = coffee
 
-    val milkCoffee = WithMilk(SimpleCoffee())
-    printInfo(milkCoffee)
-
-    val creamMilkCoffee = WithCream(WithMilk(SimpleCoffee()))
-    printInfo(creamMilkCoffee)
+    override fun getName(): String = decoratedCoffee.getName()
+    override fun getCost(): Double = decoratedCoffee.getCost()
+    override fun getIngredients(): String = decoratedCoffee.getIngredients()
 }
