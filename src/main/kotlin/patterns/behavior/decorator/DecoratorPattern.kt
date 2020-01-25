@@ -10,6 +10,8 @@ package patterns.behavior.decorator
  * ----------------
  * Responsibilities should be added to (and removed from) an object dynamically at run-time.
  * A flexible alternative to subclassing for extending functionality should be provided.
+ *
+ * In kotlin we can use infix or extension to use like decorator pattern.
  * Steps
  * -----
  * 1.
