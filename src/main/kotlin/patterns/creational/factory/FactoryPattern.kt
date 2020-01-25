@@ -10,6 +10,8 @@ import java.lang.IllegalArgumentException
 * Factory pattern introduces loose coupling between classes which is the most important
 * principle one should consider and apply while designing the application architecture.
 * usability: 1. common parser provider-> eg. xml parser, json parser etc.
+*
+* In kotlin we can use `companion` as factory pattern.
 * Step
 * -----
 * 1. interface or abstruct class creation.
