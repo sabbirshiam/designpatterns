@@ -1,4 +1,4 @@
-package patterns.behavior.decorator
+package patterns.structural.decorator
 
 /**
  *  Main object which extends interface Coffee. we will decorate it with add ons over it.
