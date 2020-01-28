@@ -6,7 +6,7 @@ interface ValueChangedListener {
     fun onValueChanged(newValue: String)
 }
 
-class PrintValueChanged : ValueChangedListener {
+class PrintChangedValue : ValueChangedListener {
     override fun onValueChanged(newValue: String) {
         println("Text is changed to $newValue")
     }
@@ -22,7 +22,7 @@ class ObservableObject(listener: ValueChangedListener) {
 }
 
 fun main(args: Array<String>) {
-    val observableObject = ObservableObject(PrintValueChanged())
+    val observableObject = ObservableObject(PrintChangedValue())
     observableObject.text = "hello"
     observableObject.text = "changed value"
 }
