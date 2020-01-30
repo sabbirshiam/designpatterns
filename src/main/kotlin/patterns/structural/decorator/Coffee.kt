@@ -1,4 +1,4 @@
-package patterns.behavior.decorator
+package patterns.structural.decorator
 
 interface Coffee {
     fun getName(): String

@@ -1,4 +1,4 @@
-package patterns.behavior.decorator
+package patterns.structural.decorator
 
 class WithMilk constructor(coffee: Coffee) : CoffeeDecorator(coffee) {
 
