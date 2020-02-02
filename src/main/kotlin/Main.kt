@@ -1,3 +1,7 @@
+import patterns.structural.decorator.Coffee
+import patterns.structural.decorator.SimpleCoffee
+import patterns.structural.decorator.WithCream
+import patterns.structural.decorator.WithMilk
 import patterns.creational.factory.FactoryPattern
 import patterns.creational.factory.FactoryPattern.Companion.PARSER
 import patterns.creational.singleton.SingletonPattern
@@ -29,4 +33,14 @@ fun main(args: Array<String>) {
 
     val dataParserXml = FactoryPattern().getParser(PARSER.XML)
     dataParserXml.parseData("Xml")
+
+    //Decorator pattern
+
+    fun printInfo(coffee: Coffee) = println("Order name:  Cost: ${coffee.getCost()}, Ingredients: ${coffee.getIngredients()}")
+
+    val milkCoffee = WithMilk(SimpleCoffee())
+    printInfo(milkCoffee)
+
+    val creamMilkCoffee = WithCream(WithMilk(SimpleCoffee()))
+    printInfo(creamMilkCoffee)
 }

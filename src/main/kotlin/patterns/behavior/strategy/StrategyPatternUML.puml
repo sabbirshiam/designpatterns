@@ -1,0 +1,36 @@
+@startuml
+
+interface Strategy {
+ +doOperation(int num1, int num2)
+}
+
+class OperationAdd {
+    +doOperation(int num1, int num2)
+}
+
+class OperationSubtract{
+    +doOperation(int num1, int num2)
+}
+
+class OperationMultiply{
+    +doOperation(int num1, int num2)
+}
+
+class Context{
+    -{field} Strategy
+    +executeStrategy(int num1, int num2)
+}
+
+class Client()
+
+namespace Strategy {
+    OperationAdd --> Strategy
+    OperationSubtract --> Strategy
+    OperationMultiply --> Strategy
+}
+
+Context --> Strategy
+Client --> Context: Asks
+
+
+@enduml
