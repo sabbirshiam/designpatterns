@@ -1,5 +1,7 @@
 package patterns.structural.adapter
 
-interface Android {
-    fun charge()
+class Android: AndroidCharger {
+    override fun charge() {
+        print("Android phone is charging")
+    }
 }

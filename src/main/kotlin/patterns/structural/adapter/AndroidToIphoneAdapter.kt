@@ -1,7 +1,7 @@
 package patterns.structural.adapter
 
-class AndroidToIphoneAdapter(private val iphoneCharger: IphoneCharger) : Android {
+class AndroidToIphoneAdapter(private val iphone: IPhone) : AndroidCharger {
     override fun charge() {
-        iphoneCharger.charge()
+        print("From AndroidToIphoneAdapter:: ").also { iphone.charge() }
     }
 }
