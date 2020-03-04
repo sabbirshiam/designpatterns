@@ -7,8 +7,8 @@ class Caretaker {
         mementoList.add(state)
     }
 
-    fun restoreTo(index: Int): IMemento {
-        return  mementoList[index]
+    fun restoreTo(version: Int): IMemento {
+        return  mementoList[version]
     }
 
     fun restoreDefault() { mementoList.clear() }

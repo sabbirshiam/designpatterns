@@ -16,16 +16,15 @@ fun main(args: Array<String>) {
     println("current saved state# ${originator.state}")
 
     originator.restore(caretaker.restoreTo(1))
-    println("current state after restore# ${originator.state}")
+    println("restored to # ${originator.state}")
 
     // changes made but not saved
     originator.state = "v3.0.0"
     originator.restore(caretaker.restoreTo(2))
-    println("current state after restore# ${originator.state}")
+    println("restored to # ${originator.state}")
 
     // Restore to default
     originator.restoreToDefault()
     caretaker.restoreDefault()
-    println("current state after restore# ${originator.state}")
-
+    println("restored to default# ${originator.state}")
 }
