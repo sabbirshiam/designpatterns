@@ -1,3 +1,7 @@
 package patterns.behavior.memento
 
-data class Memento(val fileName: String, val content: java.lang.StringBuilder)
+data class Memento(val content: String): IMemento {
+    override fun getState(): String {
+        return content
+    }
+}

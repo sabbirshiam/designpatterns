@@ -1,22 +1,31 @@
 package patterns.behavior.memento
 
 fun main(args: Array<String>) {
-    val caretaker = FileWriterCaretaker()
-    val fileWriter = FileWriterUtil("data.txt")
-    fileWriter.write("First Set of Data\n")
-    println(fileWriter)
+    val caretaker = Caretaker()
+    val originator = Originator("initial state")
 
-    // lets save the file
-    caretaker.save(fileWriter)
-    //now write something else
-    fileWriter.write("Second Set of Data\n")
+    caretaker.saveState(originator.createMemento())
+    println("current state# ${originator.state}")
 
-    //checking file contents
-    println(fileWriter)
+    originator.state = "v1.0.0"
+    caretaker.saveState(originator.createMemento())
+    println("current saved state# ${originator.state}")
 
-    //lets undo to last save
-    caretaker.undo(fileWriter)
+    originator.state = "v2.0.0"
+    caretaker.saveState(originator.createMemento())
+    println("current saved state# ${originator.state}")
 
-    //checking file content again
-    println(fileWriter)
+    originator.restore(caretaker.restoreTo(1))
+    println("current state after restore# ${originator.state}")
+
+    // changes made but not saved
+    originator.state = "v3.0.0"
+    originator.restore(caretaker.restoreTo(2))
+    println("current state after restore# ${originator.state}")
+
+    // Restore to default
+    originator.restoreToDefault()
+    caretaker.restoreDefault()
+    println("current state after restore# ${originator.state}")
+
 }
