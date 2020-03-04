@@ -1,0 +1,26 @@
+@startuml
+
+interface IMemento {
+ +getState()
+}
+
+class Memento{
+   +getState()
+}
+
+class Originator {
+    +createMemento() : IMemento
+    +restore(memento: IMemento)
+}
+
+class Caretaker {
+    +ArrayList<IMemento>
+    ----
+    +saveState(state: IMemento)
+    +restoreTo(version: Int)
+}
+
+IMemento ..> Memento
+Originator-->IMemento
+Caretaker-->IMemento
+@enduml
